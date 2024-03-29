@@ -28,7 +28,7 @@ int fib(int n) {
     //       statement, instead this is a much
     //       more efficient solution, as it takes
     //       O(1) for both time and space, and not
-    //       O(2^n) for both time and O(n) space
+    //       O(2^n) for time and O(n) for space
     //       complexities :)
 
     int f0 = 0;

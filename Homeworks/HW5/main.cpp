@@ -92,6 +92,13 @@ int main(int argc, char const *argv[]) {
     int* ptr = new int(5);
     int* ptrArr = new int[5];
 
+    std::cout << *ptr << std::endl;
+    for (uint i = 0; i < 5; i++)
+        ptrArr[i] = i;
+
+    for (uint i = 0; i < 5; i++)
+        std::cout << ptrArr[i] << std::endl;    
+
     delete ptr;
     delete[] ptrArr;
 

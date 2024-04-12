@@ -4,8 +4,6 @@
 #include <cstdlib>
 #include <new>
 
-using uint = unsigned int;
-
 bool isPrime(int n) {
     if (n < 2) return false;
 

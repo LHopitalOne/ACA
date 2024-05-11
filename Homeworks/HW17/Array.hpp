@@ -59,7 +59,7 @@ public:
     ~Array()
     {
         for (size_t i = 0; i < mLength; i++)
-            delete[] mData[i];
+            delete mData[i];
         delete[] mData;
     }
 };

@@ -14,15 +14,11 @@ int main(int argc, char const *argv[])
     for (size_t i = arr.size() / 2; i < arr.size(); i++)
         arr[i] = new Hippo();
     
-    // arr[0] = new Hippo();
+    arr[0] = new Hippo();
 
     std::cout << arr;
 
     arr[1]->speak();
-
-    int sAx, sHip;
-    std::cout << (sAx = sizeof(arr[0])) << " " << (sHip = sizeof(arr[1]));
-    
     return 0;
 }
 

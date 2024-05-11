@@ -3,12 +3,20 @@
 
 #include <iostream>
 
-#include "Animal.hpp"
+#include "MarineAnimal.hpp"
+#include "LandAnimal.hpp"
 
-class Hippo : public Animal
+class Hippo : public MarineAnimal, public LandAnimal
 {
 public:
-    Hippo() {}
+    Hippo()
+        : MarineAnimal("Hippi", 3, "Indian"),
+          LandAnimal("Hippi", 3, "Africa"),
+          Animal("Hippi", 3) {}
+    Hippo(std::string n, int a, std::string favoriteOcean, std::string favoriteLand)
+        : MarineAnimal(n, 3, favoriteOcean),
+          LandAnimal(n, a, favoriteLand),
+          Animal(n, a) {}
 
     void speak() override
     {

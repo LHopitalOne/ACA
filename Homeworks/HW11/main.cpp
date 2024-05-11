@@ -113,7 +113,7 @@ public:
 
 class Parking
 {
-private:
+protected:
     uint mRows;
     uint mCols;
 

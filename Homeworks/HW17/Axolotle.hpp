@@ -3,12 +3,16 @@
 
 #include <iostream>
 
-#include "Animal.hpp"
+#include "MarineAnimal.hpp"
 
-class Axolotle : public Animal
+class Axolotle : public MarineAnimal
 {
 public:
-    Axolotle() {}
+    Axolotle()
+        : MarineAnimal("Axi", 3, "Pacific"),
+          Animal("Axi", 3) {}
+    Axolotle(std::string n, int a, std::string favoriteOcean)
+        : MarineAnimal(n, a, favoriteOcean) {}
 
     void speak() override
     {

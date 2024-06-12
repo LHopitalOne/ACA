@@ -1,3 +1,4 @@
+#include <list>
 #include <vector>
 #include <iostream>
 
@@ -23,7 +24,7 @@ int main(int argc, char const *argv[])
     {
         if (isPrime(*it))
         {
-            vec.erase(it);
+            it = vec.erase(it);
         }
         else
         {
@@ -32,9 +33,33 @@ int main(int argc, char const *argv[])
     }
 
     for (auto it = vec.begin(); it != vec.end(); it++)
-    {
         std::cout << *it << " ";
+
+    std::cout << "\n\n--------------------------------\n\n";
+
+    std::list<int> lst;
+    float avg = 0;
+    for (size_t i = 0; i < 100; i++)
+    {
+        lst.push_back(i);
+        avg += i;
     }
+    avg /= 100;
+
+    for (auto it = lst.begin(); it != lst.end();)
+    {
+        if (*it < avg)
+        {
+            it = lst.erase(it);
+        }
+        else
+        {
+            it++;
+        }
+    }
+    
+    for (auto it = lst.begin(); it != lst.end(); it++)
+        std::cout << *it << " ";
 
     return 0;
 }

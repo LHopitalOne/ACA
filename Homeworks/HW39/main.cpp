@@ -1,39 +1,52 @@
-#include "tree.hpp"
-
 #include <iostream>
+#include <string>
+#include <unordered_set>
+#include <vector>
 
-int main(int argc, char const *argv[])
+class Car
 {
-    bstree<int> tree(1);
-    tree.root()->set(new bstree<int>::Node(2), new bstree<int>::Node(3));
-    tree.root()->left()->set(new bstree<int>::Node(4), new bstree<int>::Node(5));
-    tree.root()->right()->set(nullptr, new bstree<int>::Node(6));
+private:
+    std::string make;
+    std::string model;
+    int year;
+public:
 
-    std::cout << "Inorder: \n";
-    auto path = inorder<int>(tree.root());
-    for (auto& node : path)
-        std::cout << node << " ";
+    Car(const std::string& make, const std::string& model, int year)
+        : make(make),
+          model(model),
+          year(year) {}
 
-    std::cout << "\n";
+    bool operator==(const Car& other) const
+    {
+        return make == other.make && model == other.model && year == other.year;
+    }
 
-    std::cout << "Preorder: \n";
-    path = preorder<int>(tree.root());
-    for (auto& node : path)
-        std::cout << node << " ";
+    friend struct CarHash;
+    friend std::ostream& operator<<(std::ostream& os, const Car& car)
+    {
+        os << car.make << " " << car.model << " " << car.year;
+        return os;
+    }
+};
 
-    std::cout << "\n";
+struct CarHash
+{
+    std::size_t operator()(const Car& car) const 
+    {
+        return std::hash<std::string>()(car.make) ^ std::hash<std::string>()(car.model) ^ std::hash<int>()(car.year);
+    }
+};
 
-    std::cout << "Postorder: \n";
-    path = postorder<int>(tree.root());
-    for (auto& node : path)
-        std::cout << node << " ";
+int main()
+{
+    std::unordered_set<Car, CarHash> carSet;
 
-    std::cout << "\n";
+    carSet.insert(Car("Toyota", "Camry", 2020));
+    carSet.insert(Car("Honda", "Civic", 2019));
+    carSet.insert(Car("Ford", "Mustang", 2021));
 
-    std::cout << "BFS: \n";
-    path = bfs<int>(tree.root());
-    for (auto& node : path)
-        std::cout << node << " ";
-    
+    for (auto& car : carSet)
+        std::cout << car << "\n";
+
     return 0;
 }

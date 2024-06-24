@@ -1,7 +1,9 @@
-#include <iostream>
-#include <string>
-#include <unordered_set>
 #include <vector>
+#include <string>
+#include <iostream>
+#include <unordered_set>
+
+#include "hash_table.hpp"
 
 class Car
 {
@@ -47,6 +49,37 @@ int main()
 
     for (auto& car : carSet)
         std::cout << car << "\n";
+
+    std::cout << "\n-----------custom hash_table----------\n\n";
+
+    hash_table<int, std::string, std::hash<int>> myHashTable(10);
+
+    myHashTable.insert(1, "one");
+    myHashTable.insert(2, "two");
+    myHashTable.insert(3, "three");
+
+    std::cout << "Size after insertion: " << myHashTable.size() << std::endl;
+    std::cout << "Is empty: " << std::boolalpha << myHashTable.is_empty() << std::endl;
+
+    std::string value;
+    if (myHashTable.find(2, value))
+        std::cout << "Found value for key 2: " << value << std::endl;
+    else
+        std::cout << "Key 2 not found" << std::endl;
+
+    if (myHashTable.find(4, value))
+        std::cout << "Found value for key 4: " << value << std::endl;
+    else
+        std::cout << "Key 4 not found" << std::endl;
+
+    myHashTable.remove(2);
+    std::cout << "Size after removing key 2: " << myHashTable.size() << std::endl;
+
+    if (myHashTable.find(2, value))
+        std::cout << "Found value for key 2: " << value << std::endl;
+    else
+        std::cout << "Key 2 not found" << std::endl;
+
 
     return 0;
 }

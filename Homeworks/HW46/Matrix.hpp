@@ -46,6 +46,16 @@ public:
         return *this;
     }
 
+    std::size_t rows() const
+    {
+        return rows_;
+    }
+
+    std::size_t cols() const
+    {
+        return cols_;
+    }
+
     double& operator()(std::size_t row, std::size_t col)
     {
         return data_[row * cols_ + col];

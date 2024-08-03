@@ -19,19 +19,22 @@ int main(int argc, char const *argv[])
         for (std::size_t j = 0; j < mat.cols(); j++)
             mat(i, j) = k++;
     
-    unsigned int sum = 0;
+    unsigned int sum1 = 0;
+    unsigned int sum2 = 0;
+    unsigned int sum3 = 0;
+    unsigned int sum4 = 0;
 
-    std::thread t1(matrix_sum, std::ref(sum), std::ref(mat), 0, 0, mat.rows() / 2, mat.cols() / 2);
-    std::thread t2(matrix_sum, std::ref(sum), std::ref(mat), 0, mat.cols() / 2, mat.rows() / 2, mat.cols());
-    std::thread t3(matrix_sum, std::ref(sum), std::ref(mat), mat.rows() / 2, 0, mat.rows(), mat.cols() / 2);
-    std::thread t4(matrix_sum, std::ref(sum), std::ref(mat), mat.rows() / 2, mat.cols() / 2, mat.rows(), mat.cols());
+    std::thread t1(matrix_sum, std::ref(sum1), std::ref(mat), 0, 0, mat.rows() / 2, mat.cols() / 2);
+    std::thread t2(matrix_sum, std::ref(sum2), std::ref(mat), 0, mat.cols() / 2, mat.rows() / 2, mat.cols());
+    std::thread t3(matrix_sum, std::ref(sum3), std::ref(mat), mat.rows() / 2, 0, mat.rows(), mat.cols() / 2);
+    std::thread t4(matrix_sum, std::ref(sum4), std::ref(mat), mat.rows() / 2, mat.cols() / 2, mat.rows(), mat.cols());
 
     t1.join();
     t2.join();
     t3.join();
     t4.join();
 
-    std::cout << sum;
+    std::cout << (sum1 + sum2 + sum3 + sum4);
 
     return 0;
 }

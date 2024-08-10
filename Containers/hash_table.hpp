@@ -2,9 +2,10 @@
 #define HASH_TABLE_HPP
 
 #include <map>
-#include <vector>
 #include <list>
+#include <vector>
 #include <utility>
+#include <iostream>
 
 template<typename T1, typename T2, typename Hash>
 class hash_table

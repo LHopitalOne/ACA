@@ -3,6 +3,7 @@
 
 #include <cstdlib>
 #include <utility>
+#include <iostream>
 #include <stdexcept>
 #include <initializer_list>
 
@@ -202,12 +203,7 @@ private:
         Node* current = nullptr;
     public:
         input_iterator(Node* node) : current(node) {}
-        input_iterator(const input_iterator& other)
-        {
-            current->setNext(current->next());
-            current->setPrev(current->prev());
-            current->setValue(current->value());
-        }
+        input_iterator(const input_iterator& other) : current(other.current) {}
         input_iterator& operator++()
         {
             current = current->next();

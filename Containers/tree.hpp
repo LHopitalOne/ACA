@@ -3,6 +3,7 @@
 
 #include <queue>
 #include <vector>
+#include <iostream>
 
 template<typename _ValueT>
 class bstree

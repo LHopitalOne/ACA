@@ -3,6 +3,7 @@
 
 #include <cstdlib>
 #include <utility>
+#include <iostream>
 #include <stdexcept>
 #include <initializer_list>
 
@@ -281,7 +282,7 @@ template<typename _ValueT>
 void vector<_ValueT>::resize(std::size_t newCapacity)
 {
     _ValueT* newData = new _ValueT[newCapacity];
-    for (std::size_t i = 0; i < (newCapacity >= size ? mSize : newCapacity); i++)
+    for (std::size_t i = 0; i < (newCapacity >= size() ? mSize : newCapacity); i++)
         newData[i] = mData[(front_index + i) % mCapacity];
     
     if (mSize < newCapacity)

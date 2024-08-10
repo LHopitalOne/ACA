@@ -1,13 +1,15 @@
 #ifndef CONTAINER_HPP
 #define CONTAINER_HPP
 
-namespace stl
-{
-    #include "hash_table.hpp"
+// namespace stl
+// {
     #include "list.hpp"
-    #include "stack.hpp"
     #include "tree.hpp"
+    #include "stack.hpp"
+    #include "queue.hpp"
     #include "vector.hpp"
-} // namespace stl
+    #include "hash_table.hpp"
+
+// } // namespace stl
 
 #endif

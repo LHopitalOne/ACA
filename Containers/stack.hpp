@@ -1,6 +1,8 @@
 #ifndef STACK_HPP
 #define STACK_HPP
 
+#include <iostream>
+
 #include "vector.hpp"
 
 template<typename _ValueT>
@@ -32,7 +34,7 @@ public:
     void swap(stack<_ValueT>& other);
 
     stack<_ValueT>& operator=(const stack<_ValueT>& other);
-    friend std::ostream& operator<<(const stack<_ValueT>& st, std::ostream& os)
+    friend std::ostream& operator<<(std::ostream& os, const stack<_ValueT>& st)
     {
         st.print(os);
         return os;

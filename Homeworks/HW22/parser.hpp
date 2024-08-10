@@ -1,6 +1,7 @@
 #ifndef PARSER_HPP
 #define PARSER_HPP
 
+#include <string>
 #include <utility>
 #include <type_traits>
 #include <stdexcept>

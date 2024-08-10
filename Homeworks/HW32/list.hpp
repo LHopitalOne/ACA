@@ -7,7 +7,7 @@
 #include <initializer_list>
 
 namespace list
-{    
+{   
     template<typename _ValueT>
     class list // Doubly Linked List
     {

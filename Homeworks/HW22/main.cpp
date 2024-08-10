@@ -1,8 +1,8 @@
 #include <vector>
 #include <iostream>
 
-#include "freader.hpp"
 #include "parser.hpp"
+#include "freader.hpp"
 
 int main()
 {
@@ -19,7 +19,7 @@ int main()
         std::string line = reader.getline();
 
         auto rendered = P.render(line);
-        
+
         if (rendered.type() == parse::__BasicT::__INTEGER)
             integers.push_back(rendered.get<int>());
         else if (rendered.type() == parse::__BasicT::__FLOAT)

@@ -1,4 +1,7 @@
 # System unnecessary files
+*
+!*/
+!*.*
 .vscode
 .DS_Store
 *.dSYM/

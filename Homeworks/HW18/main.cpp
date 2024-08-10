@@ -9,7 +9,6 @@
 #include "Zoo.hpp"
 
 int main() {
-    // Animal** zoo = new Animal*[5];
 
     Zoo& zoo = Zoo::init(10);
 
